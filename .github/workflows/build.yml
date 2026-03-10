@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:
     inputs:
       build_configuration:
         description: 'Build Configuration (Debug or Release)'
@@ -51,3 +51,7 @@ jobs:
           CONFIG=${{inputs.build_configuration || 'Release'}}
           echo "Build with configuration: $CONFIG"
           dotnet build src/Api/Api.csproj --configuration $CONFIG --no-restore
+
+      - name: Impresión de Secrets
+        run: echo ${{secrets.API_SECRETS}}
+          
