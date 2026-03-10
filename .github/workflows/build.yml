@@ -53,5 +53,5 @@ jobs:
           dotnet build src/Api/Api.csproj --configuration $CONFIG --no-restore
 
       - name: Impresión de Secrets
-        run: echo ${{secrets.API_SECRETS}}
+        run: echo "El secret es:" ${{secrets.API_SECRETS}}
           
